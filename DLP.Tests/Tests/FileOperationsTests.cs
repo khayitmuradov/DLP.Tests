@@ -27,7 +27,6 @@ namespace DLP.Tests.Tests
             usbDriveLetter = ConfigManager.GetUSBDriveLetter();
 
             Assert.IsFalse(string.IsNullOrEmpty(usbDriveLetter), "No USB drive detected!");
-            Console.WriteLine($"✅ USB Drive Detected: {usbDriveLetter}\\");
         }
 
         [TestMethod]
@@ -39,8 +38,7 @@ namespace DLP.Tests.Tests
             fileExplorer?.NavigateToFolder2ndTime(usbPath);
             fileExplorer?.PasteFile();
 
-            Assert.IsTrue(FileIntegrityChecker.IsFileCopied(usbPath, destinationFileName), "❌ File copy failed!");
-            Console.WriteLine("✅ File successfully pasted into USB Flash Drive.");
+            Assert.IsTrue(FileIntegrityChecker.IsFileCopied(usbPath, destinationFileName), "File copy failed!");
         }
 
         [TestCleanup]
